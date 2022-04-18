@@ -4,13 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "start": "nodemon src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
-=======
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/server.ts"
->>>>>>> 8f8f333 (socket connecting)
   },
   "keywords": [
     "node",

@@ -4,12 +4,14 @@ import cors from "cors";
 import morgan from "morgan";
 import mongoose from "mongoose";
 import { Server } from "socket.io";
+// utils
+import socket from "./socket";
 // config
 import config from "./config";
 // routes
 import indexRoutes from "./routes";
 
-const { port } = config.SERVER;
+const { port, hostname } = config.SERVER;
 const { url, options, collection } = config.MONGO;
 
 // create app, server and io socket
@@ -20,34 +22,20 @@ const server = createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:3000",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["typie"],
+    credentials: true,
   },
-});
-
-// socket stuff
-io.on("connection", (socket) => {
-  console.log("client connected:", socket.id);
-  socket.emit("welcome", socket.id);
 });
 
 // set server to listen on designated port
 server.listen(port, () => {
-  console.log(`Server listening on port: ${port}`);
+  console.log(`Server listening on: ${hostname}:${port}`);
 
   // connect to mongoose
-  mongoose.connect(url, options, () =>
-    console.log(`Connected to mongodb collection ${collection}`)
-  );
+  // mongoose.connect(url, options, () =>
+  //   console.log(`Connected to mongodb collection ${collection}`)
+  // );
 
-  // cors setup
-  app.use(
-    cors({
-      origin: "http://localhost:3000",
-      methods: ["GET", "POST"],
-      allowedHeaders: ["*"],
-    })
-  );
+  socket({ io });
 
   // parse requests
   app.use(express.json());

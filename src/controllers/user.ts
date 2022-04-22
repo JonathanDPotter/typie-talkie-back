@@ -110,6 +110,13 @@ const register = async (req: Request, res: Response) => {
   }
 };
 
-const controller = { getUsers, getUser, register, login, validateToken };
+const controller = {
+  getUsers,
+  getUser,
+  register,
+  login,
+  validateToken,
+  updateUser,
+};
 
 export default controller;

@@ -14,6 +14,10 @@ function socket({ io }: { io: Server }) {
       name: "Server",
       message: "Welcome to typie-talkie",
     });
+    socket.broadcast.emit("connection", {
+      name: "Server",
+      message: `${socket.id} connected.`
+    })
     socket.on("message", (data) => {
       socket.broadcast.emit("message", data);
     });

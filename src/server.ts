@@ -2,14 +2,15 @@ import express from "express";
 import { createServer } from "http";
 import cors from "cors";
 import morgan from "morgan";
-import mongoose from "mongoose";
 import { Server } from "socket.io";
 // utils
-import socket from "./socket";
+import socket from "./utils/socket";
+import mongo from "./utils/mongo";
 // config
 import config from "./config";
 // routes
 import indexRoutes from "./routes";
+import userRoutes from "./routes/user";
 
 const { port, hostname } = config.SERVER;
 const { url, options, collection } = config.MONGO;
@@ -27,14 +28,13 @@ const io = new Server(server, {
 });
 
 // set server to listen on designated port
-server.listen(port, () => {
+server.listen(port, async () => {
   console.log(`Server listening on: ${hostname}:${port}`);
 
   // connect to mongoose
-  // mongoose.connect(url, options, () =>
-  //   console.log(`Connected to mongodb collection ${collection}`)
-  // );
+  await mongo();
 
+  // connect to websockets
   socket({ io });
 
   // parse requests
@@ -44,6 +44,15 @@ server.listen(port, () => {
   // logging with morgan
   app.use(morgan("dev"));
 
+  // cors setup
+  app.use(
+    cors({
+      origin: "http://localhost:3000",
+      credentials: true,
+    })
+  );
+
   //routes
   app.use("/", indexRoutes);
+  app.use("/api/user", userRoutes);
 });

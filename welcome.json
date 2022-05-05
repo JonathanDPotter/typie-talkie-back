@@ -1,4 +1,19 @@
 {
   "message": "Welcome to Typie-Talkie-Back",
-  "routes": { "/": { "get": "Returns this message" } }
+  "routes": {
+    "/": { "get": "Returns this message" },
+    "/api/users": { "get": "Returns all user records." },
+    "/api/users/validate": {
+      "get": "Checks Bearer token for validity.  Returns success or failure."
+    },
+    "/api/users/:_id": {
+      "get": "Returns user with a specific ID that is supplied in the url."
+    },
+    "/api/users/register": {
+      "post": "Takes a username and password in the form {username, password} and saves a new user to the database."
+    },
+    "/api/users/login": {
+      "post": "Takes a username and password in the form {username, password}, and returns {success: true} if the credentials match a user in the database and {success: false} if they do not."
+    }
+  }
 }

@@ -1,24 +1,24 @@
 {
   "name": "typie-talkie-back",
   "version": "1.0.0",
-  "description": "",
+  "description": "back end for a real time chat app",
   "main": "index.js",
   "engines": {
-    "node": "17.7.2"
+    "node": "17.x"
   },
   "scripts": {
     "start": "node dist/src/server.js",
-    "postinstall": "tsc",
-    "deploy": "git add . && git commit -m Heroku && git push heroku main",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "postinstall": "npm run build",
+    "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
   "keywords": [
     "node",
     "express",
     "typescript"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Jonathan Potter <jonathan.d.potter@outlook.com>",
+  "license": "MIT",
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.12",

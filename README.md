@@ -39,3 +39,4 @@ Api routes can be seen [here](https://typie-talkie-back.herokuapp.com/) and are 
 
 After registering a username and logging in, the app consists of an input for typing in messages that are instantly sent to all other signed in users.  It is a chat app with only one room that I made to learn how to use socket.io.
 
+![image](https://user-images.githubusercontent.com/30156468/167944806-0385caa4-fb03-475a-a4e3-2b89284d6cda.png)

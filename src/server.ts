@@ -22,8 +22,7 @@ const server = createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin:
-      "https://typie-talkie-front-https://typie-talkie-front-fcyl99l4c-jonathandpotter.vercel.app/",
+    origin: "https://typie-talkie-front-fcyl99l4c-jonathandpotter.vercel.app",
     credentials: true,
   },
 });
@@ -48,8 +47,8 @@ server.listen(port, async () => {
   // cors setup
   app.use(
     cors({
-      origin:
-        "https://typie-talkie-front-https://typie-talkie-front-fcyl99l4c-jonathandpotter.vercel.app/",
+      //typie-talkie-front-fcyl99l4c-jonathandpotter.vercel.appin:
+      origin: "https://typie-talkie-front-fcyl99l4c-jonathandpotter.vercel.app",
       credentials: true,
     })
   );

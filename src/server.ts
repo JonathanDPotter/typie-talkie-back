@@ -47,7 +47,8 @@ server.listen(port, async () => {
   // cors setup
   app.use(
     cors({
-      origin: "http://localhost:3000",
+      origin:
+        "https://typie-talkie-front-fcyl99l4c-jonathandpotter.vercel.app/",
       credentials: true,
     })
   );

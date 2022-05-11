@@ -37,5 +37,4 @@ Api routes can be seen [here](https://typie-talkie-back.herokuapp.com/) and are 
 
 ## Functionality
 
-After registering a username and logging in, the app consists of an input for typing in messages that are instantly sent to all other signed in users.  It is a chat app with only one room that I made to learn how to use socket.io.
-
+After registering a username and logging in, the app consists of an input for typing in messages that are instantly sent to all other signed in users.  It is a chat app with only one room that I made to learn how to use socket.io.  The front-end app can be found [here](https://typie-talkie-front-fcyl99l4c-jonathandpotter.vercel.app/).

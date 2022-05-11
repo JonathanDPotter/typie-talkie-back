@@ -4,7 +4,7 @@ dotenv.config();
 
 const {
   PORT,
-  HOSTNAME,
+  HOST,
   NODE_ENV,
   MONGO_USER,
   MONGO_PASSWORD,
@@ -16,13 +16,13 @@ const {
 } = process.env;
 
 const SERVER = {
-  hostname: HOSTNAME,
+  hostname: HOST,
   port: PORT,
   env: NODE_ENV,
   baseURL:
     NODE_ENV === "development"
-      ? `http://${HOSTNAME}:${PORT}/`
-      : `https://${HOSTNAME}:${PORT}/`,
+      ? `http://${HOST}:${PORT}/`
+      : `https://${HOST}:${PORT}/`,
   token: {
     expireTime: SERVER_TOKEN_EXPIRETIME,
     issuer: SERVER_TOKEN_ISSUER,

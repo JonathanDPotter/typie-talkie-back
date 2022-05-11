@@ -15,6 +15,7 @@ const validateToken = (req: Request, res: Response) => {
     .json({ success: true, message: "Token validated, user authorized." });
 };
 
+// returns all user records without the password
 const getUsers = async (req: Request, res: Response) => {
   try {
     const users = await User.find().select("-password");
@@ -26,6 +27,7 @@ const getUsers = async (req: Request, res: Response) => {
   }
 };
 
+// returns a single user record without the password
 const getUser = async (req: Request, res: Response) => {
   try {
     const user = await User.findById(req.params).select("-password");

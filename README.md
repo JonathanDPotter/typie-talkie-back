@@ -6,7 +6,7 @@ This is the back end for my typie-talkie app. The front-end repo can be found [h
 
 ## Technologies used
 
-The back-end api for the typie-talkie app is written with express in typescript. The api accesses a MongoDB Atlas database with mongoose. I use bcrypt for password hashing, signJWT for authorization token management, and socket.io for real-time messaging.
+The back-end api for the typie-talkie app is written with express in typescript. The api accesses a MongoDB Atlas database with mongoose. I use bcrypt for password hashing, jsonwebtoken for authorization token management, and socket.io for real-time messaging.
 
 ---
 
@@ -33,11 +33,11 @@ Api routes can be seen [here](https://typie-talkie-back.herokuapp.com/) and are 
   }
 }
 ```
-***
+
+---
 
 ## Functionality
 
-After registering a username and logging in, the app consists of an input for typing in messages that are instantly sent to all other signed in users.  It is a chat app with only one room that I made to learn how to use socket.io.  The front-end app can be found [here](https://typie-talkie-front-fcyl99l4c-jonathandpotter.vercel.app/).
+After registering a username and logging in, the app consists of an input for typing in messages that are instantly sent to all other signed in users. It is a chat app with only one room that I made to learn how to use socket.io. The front-end app can be found [here](https://typie-talkie-front-fcyl99l4c-jonathandpotter.vercel.app/).
 
 ![typie-talkie-home-page](https://user-images.githubusercontent.com/30156468/167945133-7badd9ca-7131-4d21-9472-ea4176410c43.png)
-

@@ -21,7 +21,7 @@ const app = express();
 const server = createServer(app);
 
 const corsOptions = {
-  origin: "https://typie-talkie-front.vercel.app/",
+  origin: "https://typie-talkie-front.vercel.app",
   credentials: true,
   preflight: true,
 };

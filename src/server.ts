@@ -20,11 +20,14 @@ const app = express();
 
 const server = createServer(app);
 
+const corsOptions = {
+  origin: "https://typie-talkie-front.vercel.app/",
+  credentials: true,
+  preflight: true,
+};
+
 const io = new Server(server, {
-  cors: {
-    origin: "*",
-    credentials: true,
-  },
+  cors: corsOptions,
 });
 
 // set server to listen on designated port
@@ -45,12 +48,7 @@ server.listen(port, async () => {
   app.use(morgan("dev"));
 
   // cors setup
-  app.use(
-    cors({
-      origin: "https://typie-talkie-front-fcyl99l4c-jonathandpotter.vercel.app",
-      credentials: true,
-    })
-  );
+  app.use(cors(corsOptions));
 
   //routes
   app.use("/", indexRoutes);

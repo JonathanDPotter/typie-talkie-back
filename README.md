@@ -1,6 +1,6 @@
 # Typie Talkie
 
-This is the back end for my typie-talkie app. The front-end repo can be found [here](https://github.com/JonathanDPotter/upc-tracker-front).
+This is the back end for my typie-talkie app. The front-end repo can be found [here](https://github.com/JonathanDPotter/typie-talkie-front).
 
 ---
 

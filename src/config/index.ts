@@ -39,6 +39,6 @@ const MONGO = {
   options: { retryWrites: true },
 };
 
-const config = { SERVER, MONGO};
+const config = { SERVER, MONGO };
 
 export default config;

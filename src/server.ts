@@ -13,7 +13,6 @@ import indexRoutes from "./routes";
 import userRoutes from "./routes/user";
 
 const { port, hostname } = config.SERVER;
-const { url, options, collection } = config.MONGO;
 
 // create app, server and io socket
 const app = express();
@@ -21,7 +20,7 @@ const app = express();
 const server = createServer(app);
 
 const corsOptions = {
-  origin: "https://typie-talkie-front.vercel.app",
+  origin: "*",
   credentials: true,
   preflight: true,
 };
@@ -32,8 +31,6 @@ const io = new Server(server, {
 
 // set server to listen on designated port
 server.listen(port, async () => {
-  console.log(`Server listening on: ${hostname}:${port}`);
-
   // connect to mongoose
   await mongo();
 
@@ -53,4 +50,7 @@ server.listen(port, async () => {
   //routes
   app.use("/", indexRoutes);
   app.use("/api/user", userRoutes);
+
+  console.log(`Server listening on: ${hostname}:${port}`);
+  console.log(`Allowed Origin: ${corsOptions.origin}`)
 });

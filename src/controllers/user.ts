@@ -9,8 +9,8 @@ import User from "../models/user";
 import signJWT from "../utils/signJWT";
 
 const validateToken = (req: Request, res: Response) => {
-  console.info("Token validated, user authorized");
-  res.status(200).json({ message: "Token validated, user authorized." });
+  console.info("Token validated.");
+  res.status(200).json({ message: "Token validated." });
   return;
 };
 

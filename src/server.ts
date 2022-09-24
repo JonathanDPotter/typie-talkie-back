@@ -12,15 +12,20 @@ import config from "./config";
 import indexRoutes from "./routes";
 import userRoutes from "./routes/user";
 
-const { port, hostname } = config.SERVER;
+const { port, hostname, env } = config.SERVER;
 
 // create app, server and io socket
 const app = express();
 
 const server = createServer(app);
 
+const currentOrigin =
+  env === "development"
+    ? "http://localhost:3000"
+    : "https://typie-talkie-front.vercel.app";
+
 const corsOptions = {
-  origin: "https://typie-talkie-front.vercel.app",
+  origin: currentOrigin,
   credentials: true,
   preflight: true,
 };

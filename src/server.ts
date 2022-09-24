@@ -20,7 +20,7 @@ const app = express();
 const server = createServer(app);
 
 const corsOptions = {
-  origin: "*",
+  origin: "https://typie-talkie-front.vercel.app/",
   credentials: true,
   preflight: true,
 };
@@ -52,5 +52,5 @@ server.listen(port, async () => {
   app.use("/api/user", userRoutes);
 
   console.log(`Server listening on: ${hostname}:${port}`);
-  console.log(`Allowed Origin: ${corsOptions.origin}`)
+  console.log(`Allowed Origin: ${corsOptions.origin}`);
 });

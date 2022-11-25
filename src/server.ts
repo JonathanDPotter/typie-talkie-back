@@ -3,6 +3,7 @@ import { createServer } from "http";
 import cors from "cors";
 import morgan from "morgan";
 import { Server } from "socket.io";
+import helmet from "helmet";
 // utils
 import socket from "./utils/socket";
 import mongo from "./utils/mongo";
@@ -20,9 +21,7 @@ const app = express();
 const server = createServer(app);
 
 const currentOrigin =
-  env === "development"
-    ? "http://localhost:3000"
-    : "https://typie-talkie-front.vercel.app";
+  env === "development" ? "*" : "https://typie-talkie-front.vercel.app";
 
 const corsOptions = {
   origin: currentOrigin,
@@ -51,6 +50,9 @@ server.listen(port, async () => {
 
   // cors setup
   app.use(cors(corsOptions));
+
+  // add helmet
+  app.use(helmet());
 
   //routes
   app.use("/", indexRoutes);

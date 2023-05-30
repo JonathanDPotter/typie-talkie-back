@@ -20,11 +20,8 @@ const app = express();
 
 const server = createServer(app);
 
-const currentOrigin =
-  env === "development" ? "*" : "https://typie-talkie-front.vercel.app";
-
 const corsOptions = {
-  origin: currentOrigin,
+  origin: "*",
   credentials: true,
   preflight: true,
 };
